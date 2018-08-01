@@ -5,6 +5,8 @@ import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.mapper.SqlCondition;
+
 import java.io.Serializable;
 
 /**
@@ -21,7 +23,8 @@ public class User extends Model<User> {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-    @TableField("user_name")
+    //condition = SqlCondition.LIKE 加入条件 以后进行where的时候 就是模糊查询
+    @TableField(value = "user_name" ,condition = SqlCondition.LIKE)
     private String userName;
     private String password;
     private String email;
