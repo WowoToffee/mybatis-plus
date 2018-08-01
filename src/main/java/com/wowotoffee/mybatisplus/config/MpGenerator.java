@@ -1,5 +1,6 @@
 package com.wowotoffee.mybatisplus.config;
 
+import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
@@ -24,24 +25,31 @@ public class MpGenerator {
         AutoGenerator mpg = new AutoGenerator();
 
         // 全局配置
-
         GlobalConfig gc = new GlobalConfig();
-
+        //工程路径
         gc.setOutputDir("E:\\ideaIU-2017.1.3\\javacoing\\mybatis-plus\\src\\main\\java");
-
+        //是否进行文件覆盖
         gc.setFileOverride(true);
-
+        //是否支持AR
         gc.setActiveRecord(true);
+
+        //主键策略
+        gc.setIdType(IdType.AUTO);
+
+
 
         gc.setEnableCache(false);// XML 二级缓存
 
         gc.setBaseResultMap(true);// XML ResultMap
 
         gc.setBaseColumnList(false);// XML columList
-
+        //作者
         gc.setAuthor("wowotoffee");
 
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
+
+        //设置生成的service接口的名字的首字母是否为I 例如IUserService
+        // gc.setServiceName("%sService");
 
         // gc.setMapperName("%sDao");
 
@@ -75,9 +83,13 @@ public class MpGenerator {
 
         StrategyConfig strategy = new StrategyConfig();
 
+        //strategy.setDbColumnUnderline(true);//指定表名字段名是否使用下划线
+
+        //strategy.setCapitalMode(true);//全局大写命名
+
         //strategy.setTablePrefix("beautiful_");// 此处可以修改为您的表前缀
 
-        strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
+        strategy.setNaming(NamingStrategy.underline_to_camel);// 表名映射实体生成策略
 
         strategy.setInclude(new String[] { "role","user_role"}); // 需要生成的表
 

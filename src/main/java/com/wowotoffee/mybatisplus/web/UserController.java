@@ -1,6 +1,7 @@
 package com.wowotoffee.mybatisplus.web;
 
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wowotoffee.mybatisplus.entity.User;
 import com.wowotoffee.mybatisplus.service.IUserService;
@@ -31,13 +32,22 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @GetMapping("/test")
-    public List<User> test() {
-        Map<String,Object> map = new HashMap<>();
-        map.put("user_name","gay");
-        //代码有误
-        List<User> users = (List<User>) userService.selectPage(new Page(1,2),null);
+    @GetMapping("/seletpage")
+    public Page<User> selectPage() {
+        //使用条件构造器进行分页查询
+        Page<User> users = userService.selectPage(new Page(1,2),new EntityWrapper<User>()
+                .like("user_name","gay"));
         return users;
+    }
+    /**
+     * AR 的一些操作
+     */
+    @GetMapping("/arPage")
+    public Page<User> arPage(){
+        User user = new User();
+        Page<User> page = user.selectPage(new Page(1, 2), new EntityWrapper<User>()
+                .eq("user_name", "gay"));
+        return page;
     }
 }
 
