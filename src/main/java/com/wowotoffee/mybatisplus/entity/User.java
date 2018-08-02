@@ -1,5 +1,6 @@
 package com.wowotoffee.mybatisplus.entity;
 
+import com.baomidou.mybatisplus.enums.FieldFill;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -28,6 +29,7 @@ public class User extends Model<User> {
     private String userName;
     private String password;
     private String email;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private String name;
     @TableField("user_phone")
     private Integer userPhone;

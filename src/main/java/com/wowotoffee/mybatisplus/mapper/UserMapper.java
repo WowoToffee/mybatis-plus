@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @since 2018-08-01
  */
 public interface UserMapper extends BaseMapper<User> {
-
+    void deleteAll();
 }

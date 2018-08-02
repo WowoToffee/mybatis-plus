@@ -8,6 +8,7 @@ import com.wowotoffee.mybatisplus.service.IUserService;
 import com.wowotoffee.mybatisplus.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
@@ -48,6 +49,13 @@ public class UserController {
         Page<User> page = user.selectPage(new Page(1, 2), new EntityWrapper<User>()
                 .eq("user_name", "gay"));
         return page;
+    }
+
+    @GetMapping("/addUser")
+    public User addUser(){
+        User user = new User();
+        userService.insert(user);
+        return user;
     }
 }
 

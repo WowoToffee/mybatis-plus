@@ -114,9 +114,17 @@ User user = new User();
 
 
 
+### 插件机制：
 
+mybatis plus支持分页插件，乐观锁，性能分析，执行分析插件。（详情请看官网）
 
+### 自定义全局操作：
 
+[自定义全局操作](http://mp.baomidou.com/#/sql-injector)
+
+### 公共字段自动填充：
+
+[公共字段自动填充](http://mp.baomidou.com/#/auto-fill)
 
 
 
