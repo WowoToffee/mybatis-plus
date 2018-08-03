@@ -3,6 +3,8 @@ package com.wowotoffee.mybatisplus.entity;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.activerecord.Model;
 import java.io.Serializable;
 
@@ -12,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wowotoffee
- * @since 2018-08-01
+ * @since 2018-08-03
  */
 public class Role extends Model<Role> {
 
@@ -20,8 +22,9 @@ public class Role extends Model<Role> {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-    @TableField("role_name")
-    private String roleName;
+    private String name;
+    @TableField("desc_")
+    private String desc;
 
 
     public Integer getId() {
@@ -32,12 +35,20 @@ public class Role extends Model<Role> {
         this.id = id;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getName() {
+        return name;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     @Override
@@ -49,7 +60,8 @@ public class Role extends Model<Role> {
     public String toString() {
         return "Role{" +
         ", id=" + id +
-        ", roleName=" + roleName +
+        ", name=" + name +
+        ", desc=" + desc +
         "}";
     }
 }

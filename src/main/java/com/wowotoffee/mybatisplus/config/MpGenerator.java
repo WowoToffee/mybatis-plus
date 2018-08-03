@@ -75,7 +75,7 @@ public class MpGenerator {
 
         dsc.setPassword("123");
 
-        dsc.setUrl("jdbc:mysql://localhost:3306/mybatis?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true");
+        dsc.setUrl("jdbc:mysql://localhost:3306/shiro?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true");
 
         mpg.setDataSource(dsc);
 
@@ -91,7 +91,7 @@ public class MpGenerator {
 
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名映射实体生成策略
 
-        strategy.setInclude(new String[] { "role","user_role"}); // 需要生成的表
+        strategy.setInclude(new String[] { "role","user_role","user","permission","role_permission"}); // 需要生成的表
 
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
 

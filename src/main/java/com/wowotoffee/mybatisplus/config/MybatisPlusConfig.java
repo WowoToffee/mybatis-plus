@@ -55,9 +55,10 @@ public class MybatisPlusConfig {
     }
 
     /*@Bean
-    public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean() {
+    public MybatisSqlSessionFactoryBean FactoryBean() {
         MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
-        factoryBean.setGlobalConfig(globalConfiguration ());
+        //factoryBean.setGlobalConfig(globalConfiguration ());
+
         return factoryBean;
     }*/
 
