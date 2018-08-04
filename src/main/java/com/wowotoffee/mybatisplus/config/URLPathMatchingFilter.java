@@ -40,7 +40,6 @@ public class URLPathMatchingFilter extends PathMatchingFilter {
         }
 
         // 看看这个路径权限里有没有维护，如果没有维护，一律放行(也可以改为一律不放行)
-        System.out.println("permissionService:"+iPermissionService);
         //这里查询permission 表中的内容
         boolean needInterceptor = iPermissionService.needInterceptor(requestURI);
         if (!needInterceptor) {
