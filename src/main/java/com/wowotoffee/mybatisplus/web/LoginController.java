@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+/**
+ * 没有权限也可以访问的公共页面
+ */
 @Controller
 @RequestMapping("")
 public class LoginController {
@@ -57,31 +60,58 @@ public class LoginController {
 
         } catch (AuthenticationException e) {
             model.addAttribute("error", "验证失败");
-            return "logins";
+            return "login";
         }
     }
 
+    /**
+     * 登录跳转
+     * @return
+     */
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String userLogin() {
+        return "login";
+    }
+
+    /**
+     * 首页
+     * @return
+     */
     @GetMapping("/index")
     public String userIndex(){
-        User user = new User();
-        //userService.insert(user);
+
         return "index";
     }
 
+    /**
+     * 权限不足界面
+     * @return
+     */
     @GetMapping("/unauthorized")
     public String userUnauthorized(){
-        User user = new User();
-        //userService.insert(user);
+
         return "unauthorized";
     }
 
-    @GetMapping("/listuser")
-    public String userList(Map<String,Object> map){
-        map.put("users",iUserService.selectList(null));
-        return "listuser";
+    /**
+     * 登出功能，跳到登录界面
+     * @return
+     */
+    @GetMapping("/doLogout")
+    public String logout(){
+
+        return "login";
     }
-    @RequestMapping("addUser")
+
+    /**
+     * 用户注册
+     * @param name
+     * @param password
+     * @return
+     */
+    @RequestMapping("/addUser")
     public String addUser(String name,String password){
+        System.out.println(name+password);
         //加盐
         String salt = new SecureRandomNumberGenerator().nextBytes().toString();
         int times = 2;
@@ -93,6 +123,9 @@ public class LoginController {
         u.setName(name);
         u.setPassword(encodedPassword);
         u.setSalt(salt);
+
+        iUserService.insert(u);
+
         return "listUser";
     }
 }

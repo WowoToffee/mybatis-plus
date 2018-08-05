@@ -32,8 +32,9 @@ public class DatabaseRealm extends AuthorizingRealm {
         String userName = (String) principalCollection.getPrimaryPrincipal();
         // 通过service获取角色和权限
         Set<String> permissions = permissionService.listPermissionNames(userName);
+        System.out.println(permissions+"permissions");
         Set<String> roles = roleService.selectNameByUsernameService(userName);
-
+        System.out.println(roles+"roles");
         // 授权对象
         SimpleAuthorizationInfo s = new SimpleAuthorizationInfo();
         // 把通过service获取到的角色和权限放进去

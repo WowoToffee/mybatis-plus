@@ -59,8 +59,10 @@ public class ShiroConfiguration {
         //配置映射关系
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/index", "anon");
+        filterChainDefinitionMap.put("/addUser", "anon");
         filterChainDefinitionMap.put("/static/**", "anon");
         //filterChainDefinitionMap.put("/config/**", "anon");
+        //登出
         filterChainDefinitionMap.put("/doLogout", "logout");;
         filterChainDefinitionMap.put("/**", "url");
         shiroFilterFactoryBean.setFilters(customisedFilter);
