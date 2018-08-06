@@ -57,8 +57,8 @@ public class RolePermissionController {
      */
     @PostMapping ("/selectRolePermission")
     @ResponseBody
-    public Page<RolePermission> selectRolePermission(c){
-        Page<RolePermission> rolePermissions =  rolePermissionService.selectPage(new Page(current,size),null);
+    public Page<RolePermission> selectRolePermission(int current,int size){
+        Page<RolePermission> rolePermissions = rolePermissionService.selectPage(new Page(current,size),null);
         return rolePermissions;
     }
 
