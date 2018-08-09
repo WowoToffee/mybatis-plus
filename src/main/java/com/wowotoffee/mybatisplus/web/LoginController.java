@@ -52,9 +52,9 @@ public class LoginController {
              * 都可以获取到当前认证通过的用户实例，使用subject.isAuthenticated()判断用户是否已验证都将返回true.   相反，如果login方法执行过程中抛出异常，
              * 那么将认为认证失败。Shiro有着丰富的层次鲜明的异常类来描述认证失败的原因
              */
-            //获得当前的session
-            Session session = subject.getSession();
-            session.setAttribute("subject", subject);
+            //获得当前的session(如果用的是Reids 的缓存的话，就注释掉)
+            //Session session = subject.getSession();
+            //session.setAttribute("subject", subject);
 
             return "redirect:index";
 

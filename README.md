@@ -255,7 +255,7 @@ Redis 与其他 key - value 缓存产品有以下三个特点：
 
   [安装方法和配置](https://www.jianshu.com/p/10baa32b2cd9)
 
-
+在本系统使用redis做shiro的缓存，在这里是使用的shiro-redis插件，在redis的config类中配置一下即可使用（因为是做的考试管理系统所有就没有考虑session共享的问题）
 
 
 
